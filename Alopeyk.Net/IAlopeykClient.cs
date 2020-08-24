@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Alopeyk.Net.DTOs.GetPrice;
 
 namespace Alopeyk.Net
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Alopeyk.Net
+namespace Alopeyk.Net.DTOs.GetPrice
 {
     public class GetPriceObjectResponseDto
     {
@@ -10,12 +10,12 @@ namespace Alopeyk.Net
         public string Distance { get; set; }
         public string Duration { get; set; }
         public string Status { get; set; }
-        public string User_credit { get; set; }
+        public string UserCredit { get; set; }
         public string Delay { get; set; }
         public string City { get; set; }
-        public string Transport_type { get; set; }
-        public string Has_return { get; set; }
+        public string TransportType { get; set; }
+        public string HasReturn { get; set; }
         public string Cashed { get; set; }
-        public string Price_with_return { get; set; }
+        public string PriceWithReturn { get; set; }
     }
 }

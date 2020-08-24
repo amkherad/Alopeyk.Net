@@ -1,4 +1,4 @@
-﻿namespace Alopeyk.Net
+﻿namespace Alopeyk.Net.DTOs.GetPrice
 {
     public class GetPriceResponseDto
     {

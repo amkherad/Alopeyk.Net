@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace Alopeyk.Net
 
         public IJsonSerializer JsonSerializer { get; }
 
+        public string LocationURI { get; set; }
 
         public AlopeykClient(
             AlopeykApiInfoDto apiInfo,
@@ -30,7 +32,7 @@ namespace Alopeyk.Net
         }
 
 
-        public virtual Task<object> GetLocation(
+        public virtual async Task<object> GetLocation(
             double latitude,
             double longitude,
             CancellationToken cancellationToken

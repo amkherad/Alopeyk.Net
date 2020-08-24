@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Alopeyk.Net
 {
-    public class AlopeykClient : IDisposable
+    public class AlopeykClient : IAlopeykClient, IDisposable
     {
         public AlopeykApiInfoDto ApiInfo { get; }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,6 +15,9 @@ namespace Alopeyk.Net
         public IJsonSerializer JsonSerializer { get; }
 
         public string LocationURI { get; set; }
+
+        private const string APPLICATION_JSON = "application/json";
+
 
         public AlopeykClient(
             AlopeykApiInfoDto apiInfo,
@@ -41,19 +45,23 @@ namespace Alopeyk.Net
             throw new NotImplementedException();
         }
 
-        public virtual Task<object> GetPrice(
-            string appId,
-            int orderId,
-            string transportType,
-            string city,
-            object[] addresses,
-            bool hasReturn,
-            bool cached,
+        public virtual async Task<GetPriceResponseDto> GetPrice(
+            GetPriceRequestDto requestDto,
             CancellationToken cancellationToken
         )
         {
-            throw new NotImplementedException();
+            var request = new HttpRequestMessage(HttpMethod.Post, ApiInfo.RemoteServiceUri)
+            {
+                Content = new StringContent(JsonSerializer.Serialize(requestDto),
+                    Encoding.UTF8, APPLICATION_JSON)
+            };
+
+
+            var response = await HttpClient.Send(request, cancellationToken);
+
+            return JsonSerializer.Deserialize<GetPriceResponseDto>(await response.Content.ReadAsStreamAsync());
         }
+
 
         public virtual Task<object> TakeAlopeyk(
             string appId,

@@ -12,14 +12,8 @@ namespace Alopeyk.Net
         );
 
 
-        Task<object> GetPrice(
-            string appId,
-            int orderId,
-            string transportType,
-            string city,
-            object[] addresses,
-            bool hasReturn,
-            bool cached,
+        Task<GetPriceResponseDto> GetPrice(
+            GetPriceRequestDto requestDto,
             CancellationToken cancellationToken
         );
 

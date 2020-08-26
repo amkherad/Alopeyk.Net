@@ -10,7 +10,7 @@ namespace Alopeyk.Net.AspNet
         
         public AlopeykEnvironments Environment { get; set; } = AlopeykEnvironments.Production;
         
-        public Uri RemoteApiUri { get; set; }
+        public Uri RemoteServiceUri { get; set; }
         
         public string Token { get; set; }
 

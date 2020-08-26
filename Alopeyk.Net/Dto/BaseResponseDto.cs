@@ -44,6 +44,6 @@ namespace Alopeyk.Net.Dto
         
         public string Message { get; set; }
         
-        public T Object { get; set; } 
+        public T Object { get; set; }
     }
 }

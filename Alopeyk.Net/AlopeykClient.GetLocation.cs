@@ -53,9 +53,10 @@ namespace Alopeyk.Net
             var path = CreatePath(GetLocationV2EndpointPath);
 
             var retryContext = await RetryHandler.BeginTry(cancellationToken);
+
             HttpResponseMessage response = null;
             bool retry = false;
-
+            
             do
             {
                 try

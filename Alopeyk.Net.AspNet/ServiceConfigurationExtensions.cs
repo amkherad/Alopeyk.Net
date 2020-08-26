@@ -34,6 +34,8 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 throw new InvalidOperationException();
             }
+
+            var remoteUri = config.RemoteServiceUri;
             
             var httpClient = config.HttpClientFactory?.Invoke(sp) ?? new HttpClient();
 
@@ -42,7 +44,7 @@ namespace Microsoft.Extensions.DependencyInjection
             var retryBuilder = config.RetryBuilder;
 
             return new AlopeykClient(
-                config.RemoteApiUri,
+                remoteUri,
                 config.Token,
                 httpClient,
                 jsonSerializer,

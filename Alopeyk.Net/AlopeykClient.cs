@@ -29,19 +29,23 @@ namespace Alopeyk.Net
         public bool DisposeHttpClient { get; set; } = true;
 
         public IJsonSerializer JsonSerializer { get; }
+        
+        public IRetryHandler RetryHandler { get; }
 
 
         public AlopeykClient(
             Uri remoteServiceUri,
             string token,
             HttpClient httpClient,
-            IJsonSerializer jsonSerializer
+            IJsonSerializer jsonSerializer,
+            IRetryHandler retryHandler
         )
         {
             RemoteServiceUri = remoteServiceUri;
             Token = token;
             HttpClient = httpClient;
             JsonSerializer = jsonSerializer;
+            RetryHandler = retryHandler;
         }
 
 

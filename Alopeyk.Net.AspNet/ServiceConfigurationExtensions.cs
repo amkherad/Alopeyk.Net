@@ -39,11 +39,14 @@ namespace Microsoft.Extensions.DependencyInjection
 
             var jsonSerializer = config.JsonSerializer;
 
+            var retryBuilder = config.RetryBuilder;
+
             return new AlopeykClient(
                 config.RemoteApiUri,
                 config.Token,
                 httpClient,
-                jsonSerializer
+                jsonSerializer,
+                retryBuilder?.CreateHandler()
             );
         }
     }

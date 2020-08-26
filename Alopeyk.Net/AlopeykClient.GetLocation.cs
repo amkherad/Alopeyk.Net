@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Alopeyk.Net.Dto;
@@ -51,12 +52,33 @@ namespace Alopeyk.Net
 
             var path = CreatePath(GetLocationV2EndpointPath);
 
-            var response = await HttpClient.GetAsync($"{path}?latlng={latlng}", cancellationToken);
+            var retryContext = await RetryHandler.BeginTry(cancellationToken);
+            HttpResponseMessage response = null;
+            bool retry = false;
 
-            if (!response.IsSuccessStatusCode)
+            do
             {
-                ThrowInvalidStatusCode(response);
-                return null; //unreachable code.
+                try
+                {
+                    response = await HttpClient.GetAsync($"{path}?latlng={latlng}", cancellationToken);
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        ThrowInvalidStatusCode(response);
+                        return null; //unreachable code.
+                    }
+
+                    await RetryHandler.EndTry(retryContext, cancellationToken);
+                }
+                catch (Exception ex)
+                {
+                    retry = await RetryHandler.CatchException(retryContext, ex, cancellationToken);
+                }
+            } while (retry);
+
+            if (response is null)
+            {
+                throw new InvalidOperationException();
             }
 
             var responseStream = await response.Content.ReadAsStreamAsync();

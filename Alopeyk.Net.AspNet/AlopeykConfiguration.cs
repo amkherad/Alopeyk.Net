@@ -6,6 +6,8 @@ namespace Alopeyk.Net.AspNet
 {
     public class AlopeykConfiguration
     {
+        internal RetryBuilder RetryBuilder { get; private set; }
+        
         public AlopeykEnvironments Environment { get; set; } = AlopeykEnvironments.Production;
         
         public Uri RemoteApiUri { get; set; }
@@ -15,5 +17,11 @@ namespace Alopeyk.Net.AspNet
         public Func<IServiceProvider, HttpClient> HttpClientFactory { get; set; }
         
         public IJsonSerializer JsonSerializer { get; set; }
+
+        public RetryBuilder AddRetry()
+        {
+            RetryBuilder = new RetryBuilder();
+            return RetryBuilder;
+        }
     }
 }

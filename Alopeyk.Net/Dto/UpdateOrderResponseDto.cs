@@ -1,6 +1,6 @@
 namespace Alopeyk.Net.Dto
 {
-    public class GetOrderStatusResponseDto
+    public class UpdateOrderResponseDto
     {
         
     }

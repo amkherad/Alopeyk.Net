@@ -4,7 +4,7 @@ description: A strong typed client for https://alopeyk.com/ API with async suppo
 
 remote_theme: rundocs/jekyll-rtd-theme # rundocs/jekyll-theme-docsify
 
-baseurl: '/docs'
+# baseurl: '/'
 
 nav_version: true
 edit: false

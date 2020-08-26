@@ -33,7 +33,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<GetLocationSuggestionsResponseDto> GetLocationSuggestions(
+        Task<BaseResponseDto<GetLocationSuggestionsResponseDto[]>> GetLocationSuggestions(
             GetLocationSuggestionsRequestDto request,
             CancellationToken cancellationToken
         );
@@ -129,7 +129,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<CancelOrderResponseDto> CancelOrder(
+        Task<BaseResponseDto<CancelOrderResponseDto>> CancelOrder(
             CancelOrderRequestDto request,
             CancellationToken cancellationToken
         );
@@ -192,11 +192,11 @@ namespace Alopeyk.Net
         /// <remarks>
         ///     https://sandbox-tracking.alopeyk.com/#/{order_token}
         /// </remarks>
-        /// <param name="token"></param>
+        /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         Task<string> GetLiveMapLink(
-            string token,
+            GetLiveMapLinkRequestDto request,
             CancellationToken cancellationToken
         );
     }

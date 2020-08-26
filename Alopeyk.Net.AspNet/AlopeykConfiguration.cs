@@ -12,6 +12,8 @@ namespace Alopeyk.Net.AspNet
         
         public Uri RemoteServiceUri { get; set; }
         
+        public TimeSpan Timeout { get; set; }
+        
         public string Token { get; set; }
 
         public Func<IServiceProvider, HttpClient> HttpClientFactory { get; set; }

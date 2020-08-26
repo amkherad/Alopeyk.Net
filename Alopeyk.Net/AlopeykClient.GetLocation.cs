@@ -8,6 +8,8 @@ namespace Alopeyk.Net
 {
     public partial class AlopeykClient
     {
+        private const string GetLocationV2EndpointPath = "v2/locations";
+
         private class traffic_zone_model
         {
             public bool congestion { get; set; }
@@ -56,7 +58,7 @@ namespace Alopeyk.Net
 
             HttpResponseMessage response = null;
             bool retry = false;
-            
+
             do
             {
                 try
@@ -65,7 +67,7 @@ namespace Alopeyk.Net
 
                     if (!response.IsSuccessStatusCode)
                     {
-                        ThrowInvalidStatusCode(response);
+                        ThrowOnInvalidStatusCode(response);
                         return null; //unreachable code.
                     }
 
@@ -86,13 +88,35 @@ namespace Alopeyk.Net
 
             var result = JsonSerializer.Deserialize<GetLocationResponseRDto>(responseStream);
 
+            if (result is null)
+            {
+                throw new AlopeykException("Object was empty in alopeyk's response.");
+            }
+
+            var obj = result.@object;
+
             var output = new BaseResponseDto<GetLocationResponseDto>
             {
                 Status = FormatStatusCode(result.status),
                 Message = result.message,
-                Object = new GetLocationResponseDto
-                {
-                }
+                Object = obj is null
+                    ? null
+                    : new GetLocationResponseDto
+                    {
+                        Province = obj.province,
+                        City = obj.city,
+                        CityFa = obj.city_fa,
+                        District = obj.district,
+                        Region = obj.region,
+                        Address = obj.address,
+                        TrafficZone = obj.traffic_zone is null
+                            ? null
+                            : new TrafficZoneDto
+                            {
+                                Congestion = obj.traffic_zone.congestion,
+                                OddEven = obj.traffic_zone.odd_even
+                            }
+                    }
             };
 
             BindBaseResponse(output, response);

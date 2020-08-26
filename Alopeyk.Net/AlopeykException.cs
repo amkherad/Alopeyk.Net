@@ -5,6 +5,8 @@ namespace Alopeyk.Net
 {
     public class AlopeykException : Exception
     {
+        public string RemoteResponse { get; set; }
+        
         public AlopeykException()
         {
         }

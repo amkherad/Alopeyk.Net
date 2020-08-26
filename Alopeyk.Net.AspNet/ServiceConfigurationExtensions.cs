@@ -37,7 +37,10 @@ namespace Microsoft.Extensions.DependencyInjection
 
             var remoteUri = config.RemoteServiceUri;
             
-            var httpClient = config.HttpClientFactory?.Invoke(sp) ?? new HttpClient();
+            var httpClient = config.HttpClientFactory?.Invoke(sp) ?? new HttpClient
+            {
+                Timeout = config.Timeout,
+            };
 
             var jsonSerializer = config.JsonSerializer;
 

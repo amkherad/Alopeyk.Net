@@ -11,12 +11,10 @@ namespace Alopeyk.Net
     {
         private const string ApplicationJsonMime = "application/json";
 
-        private const string GetLocationV2EndpointPath = "v2/locations";
         private const string GetPriceV2EndpointPath = "v2/orders/price/calc";
         private const string GetPricesV2EndpointPath = "v2/orders/batch-price";
         private const string GetOrderStatusV2EndpointPath = "v2/orders/{order_id}";
         private const string InsertOrderV2EndpointPath = "v2/orders";
-        private const string CancelOrderV2EndpointPath = "v2/orders/{order_id}/cancel";
 
         private const string OrderIdPlaceholder = "{order_id}";
 
@@ -57,21 +55,21 @@ namespace Alopeyk.Net
             }
         }
 
-        private string CreatePath(
+        protected virtual string CreatePath(
             string relativePath
         )
         {
             return Path.Join(RemoteServiceUri.AbsolutePath, relativePath);
         }
 
-        private void ThrowInvalidStatusCode(
+        protected virtual void ThrowOnInvalidStatusCode(
             HttpResponseMessage response
         )
         {
             throw new AlopeykException($"Alopeyk remote service returned an invalid http status code, statusCode: {response.StatusCode}");
         }
 
-        private void BindBaseResponse<T>(
+        protected virtual void BindBaseResponse<T>(
             BaseResponseDto<T> result,
             HttpResponseMessage response
         )
@@ -123,7 +121,7 @@ namespace Alopeyk.Net
             }
         }
 
-        private AlopeykStatusCodes FormatStatusCode(
+        protected virtual AlopeykStatusCodes FormatStatusCode(
             string statusCode
         )
         {
@@ -136,6 +134,23 @@ namespace Alopeyk.Net
                 default:
                 {
                     return AlopeykStatusCodes.Failure;
+                }
+            }
+        }
+
+        protected virtual AlopeykOrderStates FormatOrderStatusCode(
+            string statusCode
+        )
+        {
+            switch (statusCode?.ToLower())
+            {
+                case "cancelled":
+                {
+                    return AlopeykOrderStates.Cancelled;
+                }
+                default:
+                {
+                    return AlopeykOrderStates.Unknown;
                 }
             }
         }

@@ -1,4 +1,4 @@
-﻿namespace Alopeyk.Net
+﻿namespace Alopeyk.Net.Dto
 {
     public class BaseAddressDto
     {

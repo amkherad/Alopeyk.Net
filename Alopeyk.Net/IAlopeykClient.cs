@@ -1,42 +1,44 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Alopeyk.Net.Dto;
 using Alopeyk.Net.DTOs.GetPrice;
 
 namespace Alopeyk.Net
 {
     public interface IAlopeykClient
     {
-        Task<object> GetLocation(
-            double latitude,
-            double longitude,
+        Task<BaseResponseDto<GetLocationResponseDto>> GetLocation(
+            GetLocationRequestDto request,
             CancellationToken cancellationToken
         );
 
 
         Task<GetPriceResponseDto> GetPrice(
-            GetPriceRequestDto requestDto,
-            CancellationToken cancellationToken
-        );
-
-        Task<object> TakeAlopeyk(
-            string appId,
-            int orderId,
-            string transportType,
-            string city,
-            object[] addresses,
-            bool hasReturn,
-            bool cashed,
-            CancellationToken cancellationToken
-        );
-
-        Task<object> GetAlopeykOrderStatus(
-            long transferId,
+            GetPriceRequestDto request,
             CancellationToken cancellationToken
         );
 
 
-        Task<object> CancelAlopeyk(
-            long transferId,
+        Task<InsertOrderResponseDto> InsertOrder(
+            InsertOrderRequestDto request,
+            CancellationToken cancellationToken
+        );
+
+
+        Task<GetOrderStatusResponseDto> GetOrderStatus(
+            GetOrderStatusRequestDto request,
+            CancellationToken cancellationToken
+        );
+
+
+        Task<CancelOrderResponseDto> CancelOrder(
+            CancelOrderRequestDto request,
+            CancellationToken cancellationToken
+        );
+
+        
+        Task<string> GetLiveMapLink(
+            string token,
             CancellationToken cancellationToken
         );
     }

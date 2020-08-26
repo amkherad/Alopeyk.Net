@@ -1,32 +1,45 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Alopeyk.Net.DTOs.GetPrice;
+using Alopeyk.Net.Dto;
+using Alopeyk.Net.Enums;
 
 namespace Alopeyk.Net
 {
-    public class AlopeykClient : IAlopeykClient, IDisposable
+    public partial class AlopeykClient : IAlopeykClient, IDisposable
     {
-        public AlopeykApiInfoDto ApiInfo { get; }
+        private const string ApplicationJsonMime = "application/json";
 
-        public IHttpClient HttpClient { get; }
+        private const string GetLocationV2EndpointPath = "v2/locations";
+        private const string GetPriceV2EndpointPath = "v2/orders/price/calc";
+        private const string GetPricesV2EndpointPath = "v2/orders/batch-price";
+        private const string GetOrderStatusV2EndpointPath = "v2/orders/{order_id}";
+        private const string InsertOrderV2EndpointPath = "v2/orders";
+        private const string CancelOrderV2EndpointPath = "v2/orders/{order_id}/cancel";
+
+        private const string OrderIdPlaceholder = "{order_id}";
+
+        public Uri RemoteServiceUri { get; }
+
+        public string Token { get; set; }
+
+        public HttpClient HttpClient { get; }
+
+        public bool DisposeHttpClient { get; set; } = true;
 
         public IJsonSerializer JsonSerializer { get; }
 
-        public string LocationURI { get; set; }
-
-        private const string APPLICATION_JSON = "application/json";
-
 
         public AlopeykClient(
-            AlopeykApiInfoDto apiInfo,
-            IHttpClient httpClient,
+            Uri remoteServiceUri,
+            string token,
+            HttpClient httpClient,
             IJsonSerializer jsonSerializer
         )
         {
-            ApiInfo = apiInfo;
+            RemoteServiceUri = remoteServiceUri;
+            Token = token;
             HttpClient = httpClient;
             JsonSerializer = jsonSerializer;
         }
@@ -34,64 +47,93 @@ namespace Alopeyk.Net
 
         public virtual void Dispose()
         {
-        }
-
-
-        public virtual async Task<object> GetLocation(
-            double latitude,
-            double longitude,
-            CancellationToken cancellationToken
-        )
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual async Task<GetPriceResponseDto> GetPrice(
-            GetPriceRequestDto requestDto,
-            CancellationToken cancellationToken
-        )
-        {
-            var request = new HttpRequestMessage(HttpMethod.Post, ApiInfo.RemoteServiceUri)
+            if (DisposeHttpClient)
             {
-                Content = new StringContent(JsonSerializer.Serialize(requestDto),
-                    Encoding.UTF8, APPLICATION_JSON)
-            };
-
-
-            var response = await HttpClient.Send(request, cancellationToken);
-
-            return JsonSerializer.Deserialize<GetPriceResponseDto>(await response.Content.ReadAsStreamAsync());
+                HttpClient.Dispose();
+            }
         }
 
-
-        public virtual Task<object> TakeAlopeyk(
-            string appId,
-            int orderId,
-            string transportType,
-            string city,
-            object[] addresses,
-            bool hasReturn,
-            bool cashed,
-            CancellationToken cancellationToken
+        private string CreatePath(
+            string relativePath
         )
         {
-            throw new NotImplementedException();
+            return Path.Join(RemoteServiceUri.AbsolutePath, relativePath);
         }
 
-        public virtual Task<object> GetAlopeykOrderStatus(
-            long transferId,
-            CancellationToken cancellationToken
+        private void ThrowInvalidStatusCode(
+            HttpResponseMessage response
         )
         {
-            throw new NotImplementedException();
+            throw new AlopeykException($"Alopeyk remote service returned an invalid http status code, statusCode: {response.StatusCode}");
         }
 
-        public virtual Task<object> CancelAlopeyk(
-            long transferId,
-            CancellationToken cancellationToken
+        private void BindBaseResponse<T>(
+            BaseResponseDto<T> result,
+            HttpResponseMessage response
         )
         {
-            throw new NotImplementedException();
+            if (response.Headers.TryGetValues("X-MinuteRateLimit-Identifier",
+                out var valuesMinuteRateLimitIdentifierStr))
+            {
+                result.MinuteRateLimitIdentifier = valuesMinuteRateLimitIdentifierStr.FirstOrDefault();
+            }
+
+            if (response.Headers.TryGetValues("X-MinuteRateLimit-Limit", out var valuesMinuteRateLimitLimitStr))
+            {
+                if (int.TryParse(valuesMinuteRateLimitLimitStr.FirstOrDefault(), out var valuesMinuteRateLimitLimit))
+                {
+                    result.MinuteRateLimitLimit = valuesMinuteRateLimitLimit;
+                }
+            }
+
+            if (response.Headers.TryGetValues("X-MinuteRateLimit-Remaining", out var valuesMinuteRateLimitRemainingStr))
+            {
+                if (int.TryParse(valuesMinuteRateLimitRemainingStr.FirstOrDefault(),
+                    out var valuesMinuteRateLimitRemaining))
+                {
+                    result.MinuteRateLimitRemaining = valuesMinuteRateLimitRemaining;
+                }
+            }
+
+
+            if (response.Headers.TryGetValues("X-DailyRateLimit-Identifier", out var valuesDailyRateLimitIdentifierStr))
+            {
+                result.DailyRateLimitIdentifier = valuesDailyRateLimitIdentifierStr.FirstOrDefault();
+            }
+
+            if (response.Headers.TryGetValues("X-DailyRateLimit-Limit", out var valuesDailyRateLimitLimitStr))
+            {
+                if (int.TryParse(valuesDailyRateLimitLimitStr.FirstOrDefault(), out var valuesDailyRateLimitLimit))
+                {
+                    result.DailyRateLimitLimit = valuesDailyRateLimitLimit;
+                }
+            }
+
+            if (response.Headers.TryGetValues("X-DailyRateLimit-Remaining", out var valuesDailyRateLimitRemainingStr))
+            {
+                if (int.TryParse(valuesDailyRateLimitRemainingStr.FirstOrDefault(),
+                    out var valuesDailyRateLimitRemaining))
+                {
+                    result.DailyRateLimitRemaining = valuesDailyRateLimitRemaining;
+                }
+            }
+        }
+
+        private AlopeykStatusCodes FormatStatusCode(
+            string statusCode
+        )
+        {
+            switch (statusCode?.ToLower())
+            {
+                case "success":
+                {
+                    return AlopeykStatusCodes.Success;
+                }
+                default:
+                {
+                    return AlopeykStatusCodes.Failure;
+                }
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Alopeyk.Net.DTOs.GetPrice
+﻿using Alopeyk.Net.Dto;
+
+namespace Alopeyk.Net.DTOs.GetPrice
 {
     public class GetPriceAddressResponseDto : BaseAddressDto
     {

@@ -2,6 +2,6 @@
 title: DeleteHiddenDescription
 category: AlopeykClient
 tags: 
-sort: 10
+sort: 11
 ---
 

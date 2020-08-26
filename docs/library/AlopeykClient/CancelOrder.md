@@ -2,6 +2,6 @@
 title: CancelOrder
 category: AlopeykClient
 tags: 
-sort: 7
+sort: 8
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: UpdateOrder
+title: GetPrice
 category: AlopeykClient
 tags: 
-sort: 7
+sort: 6
 ---
 

@@ -1,0 +1,47 @@
+title: Alopeyk.Net
+lang: [en, fa]
+description: A strong typed client for https://alopeyk.com/ API with async support.
+
+remote_theme: rundocs/jekyll-rtd-theme # rundocs/jekyll-theme-docsify
+
+baseurl: '/docs'
+
+nav_version: true
+edit: false
+addons_branch: true
+
+author: Ali Mousavi Kherad
+
+addons:
+  - github
+  - i18n
+  - plugins
+  - analytics
+
+sass:
+  style: compressed
+
+copyright:
+  revision: true
+
+readme_index:
+  with_frontmatter: true
+
+plugins:
+  - jemoji
+  - jekyll-avatar
+  - jekyll-mentions
+  - jekyll-github-metadata
+
+
+exclude:
+  - Makefile
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - requirements.txt
+  - node_modules
+  - package.json
+  - package-lock.json
+  - jekyll-rtd-theme.gemspec

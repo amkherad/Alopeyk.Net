@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
 using Alopeyk.Net.Dto;
@@ -11,7 +10,6 @@ namespace Alopeyk.Net
     {
         private const string ApplicationJsonMime = "application/json";
 
-        private const string GetPriceV2EndpointPath = "v2/orders/price/calc";
         private const string GetPricesV2EndpointPath = "v2/orders/batch-price";
         private const string GetOrderStatusV2EndpointPath = "v2/orders/{order_id}";
         private const string InsertOrderV2EndpointPath = "v2/orders";
@@ -59,7 +57,7 @@ namespace Alopeyk.Net
             string relativePath
         )
         {
-            return Path.Join(RemoteServiceUri.AbsolutePath, relativePath);
+            return Helpers.JoinUrls(RemoteServiceUri.AbsolutePath, relativePath);
         }
 
         protected virtual void ThrowOnInvalidStatusCode(

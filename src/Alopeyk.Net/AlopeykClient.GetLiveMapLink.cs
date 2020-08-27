@@ -29,10 +29,13 @@ namespace Alopeyk.Net
                 {"show_order_info_box", request.ShowOrderInfoBox?.ToString()},
             };
 
-            var dict = values.Where(kv => !(kv.Value is null))
-                .ToDictionary(kv => kv.Key, kv => Uri.EscapeDataString(kv.Value));
+            var dict = values.Where(kv => !string.IsNullOrWhiteSpace(kv.Value))
+                .ToDictionary(
+                    kv => kv.Key,
+                    kv => string.IsNullOrWhiteSpace(kv.Value) ? string.Empty : Uri.EscapeDataString(kv.Value)
+                );
 
-            var query = string.Join('&', dict.Select(kv => $"{kv.Key}={kv.Value}"));
+            var query = string.Join("&", dict.Select(kv => $"{kv.Key}={kv.Value}"));
 
             if (string.IsNullOrWhiteSpace(query))
             {

@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Alopeyk.Net.Dto;
-using Alopeyk.Net.DTOs.GetPrice;
+using Alopeyk.Net.Dto.GetPrice;
 
 namespace Alopeyk.Net
 {
@@ -49,7 +49,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<GetPriceResponseDto> GetPrice(
+        Task<BaseResponseDto<GetPriceResponseDto>> GetPrice(
             GetPriceRequestDto request,
             CancellationToken cancellationToken
         );
@@ -79,7 +79,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<InsertOrderResponseDto> InsertOrder(
+        Task<BaseResponseDto<InsertOrderResponseDto>> InsertOrder(
             InsertOrderRequestDto request,
             CancellationToken cancellationToken
         );
@@ -94,7 +94,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<GetOrderDetailsResponseDto> GetOrderDetails(
+        Task<BaseResponseDto<GetOrderDetailsResponseDto>> GetOrderDetails(
             GetOrderDetailsRequestDto request,
             CancellationToken cancellationToken
         );
@@ -114,7 +114,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<UpdateOrderResponseDto> UpdateOrder(
+        Task<BaseResponseDto<UpdateOrderResponseDto>> UpdateOrder(
             UpdateOrderRequestDto request,
             CancellationToken cancellationToken
         );
@@ -160,7 +160,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<AddHiddenDescriptionResponseDto> AddHiddenDescription(
+        Task<BaseResponseDto<AddHiddenDescriptionResponseDto>> AddHiddenDescription(
             AddHiddenDescriptionRequestDto request,
             CancellationToken cancellationToken
         );
@@ -175,7 +175,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<DeleteHiddenDescriptionResponseDto> DeleteHiddenDescription(
+        Task<BaseResponseDto<DeleteHiddenDescriptionResponseDto>> DeleteHiddenDescription(
             DeleteHiddenDescriptionRequestDto request,
             CancellationToken cancellationToken
         );

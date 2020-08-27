@@ -1,12 +1,14 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Alopeyk.Net.Dto;
+using Alopeyk.Net.Dto.GetPrice;
 
 namespace Alopeyk.Net
 {
     public partial class AlopeykClient
     {
-        public Task<AddHiddenDescriptionResponseDto> AddHiddenDescription(
+        public Task<BaseResponseDto<AddHiddenDescriptionResponseDto>> AddHiddenDescription(
             AddHiddenDescriptionRequestDto request,
             CancellationToken cancellationToken
         )

@@ -6,7 +6,7 @@ namespace Alopeyk.Net
 {
     public partial class AlopeykClient
     {
-        public Task<GetOrderDetailsResponseDto> GetOrderDetails(
+        public Task<BaseResponseDto<GetOrderDetailsResponseDto>> GetOrderDetails(
             GetOrderDetailsRequestDto request,
             CancellationToken cancellationToken
         )

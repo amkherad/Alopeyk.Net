@@ -6,7 +6,7 @@ namespace Alopeyk.Net
 {
     public partial class AlopeykClient
     {
-        public Task<InsertOrderResponseDto> InsertOrder(
+        public Task<BaseResponseDto<InsertOrderResponseDto>> InsertOrder(
             InsertOrderRequestDto request,
             CancellationToken cancellationToken
         )

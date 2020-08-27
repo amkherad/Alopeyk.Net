@@ -6,7 +6,7 @@ namespace Alopeyk.Net
 {
     public partial class AlopeykClient
     {
-        public Task<DeleteHiddenDescriptionResponseDto> DeleteHiddenDescription(
+        public Task<BaseResponseDto<DeleteHiddenDescriptionResponseDto>> DeleteHiddenDescription(
             DeleteHiddenDescriptionRequestDto request,
             CancellationToken cancellationToken
         )

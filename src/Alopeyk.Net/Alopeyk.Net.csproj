@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
         <PackageVersion>0.0.1</PackageVersion>
         <Title>Alopeyk.Net</Title>
         <Description>A strong typed client for https://alopeyk.com/ API with async support.</Description>
@@ -14,6 +13,7 @@
         <PackageTags>alopeyk</PackageTags>
         <AssemblyVersion>0.0.1</AssemblyVersion>
         <FileVersion>0.0.1</FileVersion>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     </PropertyGroup>
 
 </Project>

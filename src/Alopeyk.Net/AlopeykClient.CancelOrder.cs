@@ -114,7 +114,7 @@ namespace Alopeyk.Net
                     OrderToken = obj.order_token,
                     Signature = obj.signature is null
                         ? null
-                        : new SignatureDto
+                        : new RemoteResourceDto
                         {
                             Url = obj.signature.Url
                         }

@@ -9,7 +9,10 @@ namespace Alopeyk.Net.Dto.GetPrice
         /// </summary>
         public AlopeykTransportTypes TransportType { get; set; }
 
-        public BaseAddressDto[] Addresses { get; set; }
+        /// <summary>
+        /// The addresses of the delivery.
+        /// </summary>
+        public GetPriceLocationInfoDto Addresses { get; set; }
         
         /// <summary>
         /// If you are going to calculate price for an order which has a return option, set it to true.

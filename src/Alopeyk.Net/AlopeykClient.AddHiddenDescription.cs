@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Alopeyk.Net.Dto;
+using Alopeyk.Net.Dto.AddHiddenDescription;
 using Alopeyk.Net.Dto.GetPrice;
 
 namespace Alopeyk.Net

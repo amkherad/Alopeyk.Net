@@ -1,4 +1,4 @@
-namespace Alopeyk.Net.Dto
+namespace Alopeyk.Net.Dto.DeleteHiddenDescription
 {
     public class DeleteHiddenDescriptionRequestDto
     {

@@ -1,8 +1,6 @@
-﻿using Alopeyk.Net.Dto;
-
-namespace Alopeyk.Net.Dto.GetPrice
+﻿namespace Alopeyk.Net.Dto.GetPrice
 {
-    public class GetPriceAddressResponseDto : BaseAddressDto
+    public class GetPriceAddressResponseDto
     {
         public string City { get; set; }
 

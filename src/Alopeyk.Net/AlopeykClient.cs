@@ -10,7 +10,6 @@ namespace Alopeyk.Net
     {
         private const string ApplicationJsonMime = "application/json";
 
-        private const string GetPricesV2EndpointPath = "v2/orders/batch-price";
         private const string GetOrderStatusV2EndpointPath = "v2/orders/{order_id}";
         private const string InsertOrderV2EndpointPath = "v2/orders";
 
@@ -25,7 +24,7 @@ namespace Alopeyk.Net
         public bool DisposeHttpClient { get; set; } = true;
 
         public IJsonSerializer JsonSerializer { get; }
-        
+
         public IRetryHandler RetryHandler { get; }
 
 
@@ -64,7 +63,8 @@ namespace Alopeyk.Net
             HttpResponseMessage response
         )
         {
-            throw new AlopeykException($"Alopeyk remote service returned an invalid http status code, statusCode: {response.StatusCode}");
+            throw new AlopeykException(
+                $"Alopeyk remote service returned an invalid http status code, statusCode: {response.StatusCode}");
         }
 
         protected virtual void BindBaseResponse<T>(
@@ -150,6 +150,48 @@ namespace Alopeyk.Net
                 {
                     return AlopeykOrderStates.Unknown;
                 }
+            }
+        }
+
+        protected virtual AlopeykTransportTypes StringToTransportType(
+            string transportType
+        )
+        {
+            switch (transportType?.ToLower())
+            {
+                case "motorbike":
+                    return AlopeykTransportTypes.Motorbike;
+                case "motor_taxi":
+                    return AlopeykTransportTypes.MotorTaxi;
+                case "cargo":
+                    return AlopeykTransportTypes.Cargo;
+                case "cargo_s":
+                    return AlopeykTransportTypes.CargoS;
+                case "car":
+                    return AlopeykTransportTypes.Car;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(transportType));
+            }
+        }
+
+        protected virtual string TransportTypeToString(
+            AlopeykTransportTypes transportType
+        )
+        {
+            switch (transportType)
+            {
+                case AlopeykTransportTypes.Motorbike:
+                    return "motorbike";
+                case AlopeykTransportTypes.MotorTaxi:
+                    return "motor_taxi";
+                case AlopeykTransportTypes.Cargo:
+                    return "cargo";
+                case AlopeykTransportTypes.CargoS:
+                    return "cargo_s";
+                case AlopeykTransportTypes.Car:
+                    return "car";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(transportType), transportType, null);
             }
         }
     }

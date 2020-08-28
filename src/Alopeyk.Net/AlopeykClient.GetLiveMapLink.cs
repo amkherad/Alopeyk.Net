@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Alopeyk.Net.Dto;
+using Alopeyk.Net.Dto.GetLiveMapLink;
 
 namespace Alopeyk.Net
 {

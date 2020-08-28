@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Alopeyk.Net.Dto;
+using Alopeyk.Net.Dto.DeleteHiddenDescription;
 
 namespace Alopeyk.Net
 {

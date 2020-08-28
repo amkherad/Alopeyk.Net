@@ -1,4 +1,4 @@
-namespace Alopeyk.Net.Dto
+namespace Alopeyk.Net.Dto.GetLocationSuggestions
 {
     public class GetLocationSuggestionsRequestDto
     {

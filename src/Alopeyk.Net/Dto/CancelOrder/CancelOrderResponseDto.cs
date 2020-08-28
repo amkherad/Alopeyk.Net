@@ -1,6 +1,6 @@
 using Alopeyk.Net.Enums;
 
-namespace Alopeyk.Net.Dto
+namespace Alopeyk.Net.Dto.CancelOrder
 {
     public class CancelOrderResponseDto
     {

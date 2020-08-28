@@ -1,4 +1,6 @@
-﻿namespace Alopeyk.Net.Dto.GetPrice
+﻿using Alopeyk.Net.Enums;
+
+namespace Alopeyk.Net.Dto.GetPrice
 {
     public class GetPriceResponseDto
     {
@@ -36,5 +38,38 @@
         /// Calculated price for the order, in case of has_return=true.
         /// </summary>
         public decimal PriceWithReturn { get; set; }
+        
+        
+        public double Delay { get; set; }
+        
+        public string City { get; set; }
+        
+        public string CityFa { get; set; }
+        
+        public AlopeykTransportTypes TransportType { get; set; }
+        
+        public bool HasReturn { get; set; }
+        
+        public bool Cached { get; set; }
+        
+        public int Score { get; set; }
+        
+        public object ScoreDetail { get; set; }
+        
+        public decimal FinalPrice { get; set; }
+        
+        public decimal Discount { get; set; }
+        
+        public string [] DiscountCoupons { get; set; }
+        
+        public string[] InvalidDiscountCoupons { get; set; }
+        
+        public decimal FailedFinalPrice { get; set; }
+        
+        public decimal FailedDiscount { get; set; }
+        
+        public string[] FailedDiscountCoupons { get; set; }
+        
+        public bool Scheduled { get; set; }
     }
 }

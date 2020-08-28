@@ -2,6 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Alopeyk.Net.Dto;
+using Alopeyk.Net.Dto.AddHiddenDescription;
+using Alopeyk.Net.Dto.CancelOrder;
+using Alopeyk.Net.Dto.DeleteHiddenDescription;
+using Alopeyk.Net.Dto.GetLiveMapLink;
+using Alopeyk.Net.Dto.GetLocation;
+using Alopeyk.Net.Dto.GetLocationSuggestions;
+using Alopeyk.Net.Dto.GetOrderDetails;
 using Alopeyk.Net.Dto.GetPrice;
 
 namespace Alopeyk.Net
@@ -64,7 +71,7 @@ namespace Alopeyk.Net
         /// <param name="requests"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<IEnumerable<GetPriceResponseDto>> GetPrices(
+        Task<BaseResponseDto<IEnumerable<GetPriceResponseDto>>> GetPrices(
             IEnumerable<GetPriceRequestDto> requests,
             CancellationToken cancellationToken
         );

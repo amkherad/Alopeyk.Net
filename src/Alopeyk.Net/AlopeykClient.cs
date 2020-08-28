@@ -11,7 +11,6 @@ namespace Alopeyk.Net
         private const string ApplicationJsonMime = "application/json";
 
         private const string GetOrderStatusV2EndpointPath = "v2/orders/{order_id}";
-        private const string InsertOrderV2EndpointPath = "v2/orders";
 
         private const string OrderIdPlaceholder = "{order_id}";
 

@@ -1,4 +1,5 @@
-﻿using Alopeyk.Net.Enums;
+﻿using System.Collections.Generic;
+using Alopeyk.Net.Enums;
 
 namespace Alopeyk.Net.Dto.GetPrice
 {
@@ -54,7 +55,7 @@ namespace Alopeyk.Net.Dto.GetPrice
         
         public int Score { get; set; }
         
-        public object ScoreDetail { get; set; }
+        public Dictionary<int, string> ScoreDetail { get; set; }
         
         public decimal FinalPrice { get; set; }
         

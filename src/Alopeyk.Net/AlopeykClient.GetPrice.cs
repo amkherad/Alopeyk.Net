@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -35,7 +36,7 @@ namespace Alopeyk.Net
             public bool optimize { get; set; }
         }
         
-        public class GetPriceAddress    {
+        private class GetPriceResponseAddress    {
             public string type { get; set; } 
             public double lat { get; set; } 
             public double lng { get; set; } 
@@ -49,14 +50,9 @@ namespace Alopeyk.Net
             public int? price { get; set; } 
         }
 
-        public class GetPriceScoreDetail    {
-            public int انجامدرخواست { get; set; } 
-            public int اعتباری { get; set; } 
-        }
-
         private class GetPriceResponseItemRDto
         {
-            public GetPriceAddress[] addresses { get; set; } 
+            public GetPriceResponseAddress[] addresses { get; set; } 
             public int price { get; set; } 
             public bool credit { get; set; } 
             public int distance { get; set; } 
@@ -71,7 +67,7 @@ namespace Alopeyk.Net
             public bool cashed { get; set; } 
             public int price_with_return { get; set; } 
             public int score { get; set; } 
-            public GetPriceScoreDetail score_detail { get; set; } 
+            public Dictionary<int, string> score_detail { get; set; } 
             public int final_price { get; set; } 
             public int discount { get; set; } 
             public string[] discount_coupons { get; set; } 

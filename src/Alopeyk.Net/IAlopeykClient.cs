@@ -10,6 +10,7 @@ using Alopeyk.Net.Dto.GetLocation;
 using Alopeyk.Net.Dto.GetLocationSuggestions;
 using Alopeyk.Net.Dto.GetOrderDetails;
 using Alopeyk.Net.Dto.GetPrice;
+using Alopeyk.Net.Dto.InsertOrder;
 
 namespace Alopeyk.Net
 {

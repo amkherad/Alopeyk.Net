@@ -11,6 +11,7 @@ using Alopeyk.Net.Dto.GetLocationSuggestions;
 using Alopeyk.Net.Dto.GetOrderDetails;
 using Alopeyk.Net.Dto.GetPrice;
 using Alopeyk.Net.Dto.InsertOrder;
+using Alopeyk.Net.Dto.RateOrder;
 
 namespace Alopeyk.Net
 {
@@ -153,7 +154,7 @@ namespace Alopeyk.Net
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<RateOrderResponseDto> RateOrder(
+        Task<BaseResponseDto<RateOrderResponseDto>> RateOrder(
             RateOrderRequestDto request,
             CancellationToken cancellationToken
         );

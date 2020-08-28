@@ -76,7 +76,7 @@ namespace Alopeyk.Net
             public DateTime updated_at { get; set; }
             public DateTime created_at { get; set; }
             public int id { get; set; }
-            public SignatureDto signature { get; set; }
+            public RemoteResourceDto signature { get; set; }
             public string order_token { get; set; }
             public object nprice { get; set; }
             public object subsidy { get; set; }
@@ -217,7 +217,7 @@ namespace Alopeyk.Net
                         Price = obj.price,
                         Signature = obj.signature is null
                             ? null
-                            : new SignatureDto
+                            : new RemoteResourceDto
                             {
                                 Url = obj.signature.Url
                             },

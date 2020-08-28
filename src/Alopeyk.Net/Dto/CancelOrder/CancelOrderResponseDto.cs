@@ -12,7 +12,7 @@ namespace Alopeyk.Net.Dto.CancelOrder
         
         public int CustomerId { get; set; }
         
-        public SignatureDto Signature { get; set; }
+        public RemoteResourceDto Signature { get; set; }
         
         public string OrderToken { get; set; }
         

@@ -28,7 +28,7 @@ namespace Alopeyk.Net.Dto.InsertOrder
         public DateTime UpdatedAt { get; set; }
         public DateTime CreatedAt { get; set; }
         public int Id { get; set; }
-        public SignatureDto Signature { get; set; }
+        public RemoteResourceDto Signature { get; set; }
         public string OrderToken { get; set; }
         public object NPrice { get; set; }
         public object Subsidy { get; set; }

@@ -17,9 +17,9 @@ jobs:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
         
     - uses: dotnet/nbgv@master
-      with:
+    - with:
         setAllVars: true
-            
+    
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1

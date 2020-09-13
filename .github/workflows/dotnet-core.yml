@@ -13,11 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - with:
+      with:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
         
-    - uses: dotnet/nbgv@master
-    - with:
+    - name: Set NBGV
+      uses: dotnet/nbgv@master
+      with:
         setAllVars: true
     
 

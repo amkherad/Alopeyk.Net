@@ -16,15 +16,16 @@ jobs:
     - with:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
         
-    - uses: dotnet/nbgv@master
-        with:
-            setAllVars: true
-            
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
       
+    - name: Set NBGV Environment Variables
+      uses: dotnet/nbgv@master
+      with:
+        setAllVars: true
+            
     - name: Install dependencies
       run: dotnet restore
       

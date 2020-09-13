@@ -16,13 +16,14 @@ jobs:
       with:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
         
-    - name: Setup NBGV environment
+    - name: nbgv
       uses: dotnet/nbgv@master
       with:
         setAllVars: true
+      displayName: Setup NBGV environment
     
     - name: TEST
-      run: echo ${{ steps.nbgv.outputs.SemVer2 }}
+      run: echo ${{steps.nbgv.outputs.SemVer2}}
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1

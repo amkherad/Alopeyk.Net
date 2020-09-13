@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alopeyk.Net", "src\Alopeyk.Net\Alopeyk.Net.csproj", "{60E36417-EB69-480D-941F-5C1F3832B2CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alopeyk.Net.AspNet", "src\Alopeyk.Net.AspNet\Alopeyk.Net.AspNet.csproj", "{9004134C-AE16-41B3-A2EC-D81D7A949D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alopeyk.Net.JsonNet", "src\Alopeyk.Net.JsonNet\Alopeyk.Net.JsonNet.csproj", "{0EFAFF78-B3F5-470B-89C8-9C2EE2C71E0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60E36417-EB69-480D-941F-5C1F3832B2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E36417-EB69-480D-941F-5C1F3832B2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E36417-EB69-480D-941F-5C1F3832B2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E36417-EB69-480D-941F-5C1F3832B2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9004134C-AE16-41B3-A2EC-D81D7A949D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9004134C-AE16-41B3-A2EC-D81D7A949D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9004134C-AE16-41B3-A2EC-D81D7A949D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9004134C-AE16-41B3-A2EC-D81D7A949D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EFAFF78-B3F5-470B-89C8-9C2EE2C71E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EFAFF78-B3F5-470B-89C8-9C2EE2C71E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EFAFF78-B3F5-470B-89C8-9C2EE2C71E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EFAFF78-B3F5-470B-89C8-9C2EE2C71E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+CurrentDirectory=$PWD
+
+echo $CurrentDirectory
+
+AssemblyVersion="$1"
+API_KEY="$2"
+
+if [ "$API_KEY"  == "" ] ; then
+	echo "You should pass in the api key."
+	exit;
+fi
+
+mkdir ./bin/
+
+export AssemblyVersion
+
+dotnet pack "${CurrentDirectory}/src/Alopeyk.Net/Alopeyk.Net.csproj" -c Release -o "${CurrentDirectory}/bin" -p:PackageVersion="${AssemblyVersion}" -p:Version="${AssemblyVersion}" -p:FileVersion="${AssemblyVersion}" -p:AssemblyVersion="${AssemblyVersion}"
+dotnet pack "${CurrentDirectory}/src/Alopeyk.Net.AspNet/Alopeyk.Net.AspNet.csproj" -c Release -o "${CurrentDirectory}/bin" -p:PackageVersion="${AssemblyVersion}" -p:Version="${AssemblyVersion}" -p:FileVersion="${AssemblyVersion}" -p:AssemblyVersion="${AssemblyVersion}"
+dotnet pack "${CurrentDirectory}/src/Alopeyk.Net.JsonNet/Alopeyk.Net.JsonNet.csproj" -c Release -o "${CurrentDirectory}/bin" -p:PackageVersion="${AssemblyVersion}" -p:Version="${AssemblyVersion}" -p:FileVersion="${AssemblyVersion}" -p:AssemblyVersion="${AssemblyVersion}"
+
+dotnet nuget push "${CurrentDirectory}/bin/Alopeyk.Net.${AssemblyVersion}.nupkg" -k $API_KEY -s https://api.nuget.org/v3/index.json
+dotnet nuget push "${CurrentDirectory}/bin/Alopeyk.Net.AspNet.${AssemblyVersion}.nupkg" -k $API_KEY -s https://api.nuget.org/v3/index.json
+dotnet nuget push "${CurrentDirectory}/bin/Alopeyk.Net.JsonNet.${AssemblyVersion}.nupkg" -k $API_KEY -s https://api.nuget.org/v3/index.json 
+
+
+rm -R "${CurrentDirectory}/bin"

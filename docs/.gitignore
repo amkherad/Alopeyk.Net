@@ -1,0 +1,16 @@
+# python compiled files
+*.pyc
+
+# jekyll debug
+_site
+.jekyll-cache
+
+
+# Jeykll Gemfile.lock
+Gemfile.lock
+
+# yui-compressor
+*.jar
+
+# bundle cache
+vendor

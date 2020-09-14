@@ -1,9 +1,17 @@
 name: .NET Core
 
-on: release
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      # Push events to branches matching refs/heads/releases/10
+      - 'releases/**'
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - v**           # Push events to v* tags
 
 jobs:
-  build:
+  publish:
 
     runs-on: ubuntu-latest
 

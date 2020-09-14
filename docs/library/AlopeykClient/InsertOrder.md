@@ -10,7 +10,7 @@ sort: 5
 > Once you calculated the price of your order, you can use this endpoint in order to create a new order.
 
 
-Task<**BaseResponseDto<[InsertOrderResponseDto](/library/Dtos/InsertOrder/InsertOrderResponseDto.html)>**> InsertOrder (  
-&nbsp;&nbsp;&nbsp;&nbsp;[InsertOrderRequestDto](/library/Dtos/InsertOrder/InsertOrderRequestDto.html) request,  
+Task<**BaseResponseDto<[InsertOrderResponseDto]({{site.libraryurl}}/Dtos/InsertOrder/InsertOrderResponseDto.html)>**> InsertOrder (  
+&nbsp;&nbsp;&nbsp;&nbsp;[InsertOrderRequestDto]({{site.libraryurl}}/Dtos/InsertOrder/InsertOrderRequestDto.html) request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

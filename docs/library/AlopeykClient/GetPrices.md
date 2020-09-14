@@ -10,7 +10,7 @@ sort: 4
 > This endpoint is the same as Normal Price But the difference is you can calculate up to 15 pairs of Normal Price in one request.
 
 
-Task<**BaseResponseDto< IEnumerable<[GetPriceResponseDto](/library/Dtos/GetPrice/GetPriceResponseDto.html)> >**> GetPrice (  
-&nbsp;&nbsp;&nbsp;&nbsp;IEnumerable<[GetPriceRequestDto](/library/Dtos/GetPrice/GetPriceRequestDto.html)> request,  
+Task<**BaseResponseDto< IEnumerable<[GetPriceResponseDto]({{site.libraryurl}}/Dtos/GetPrice/GetPriceResponseDto.html)> >**> GetPrice (  
+&nbsp;&nbsp;&nbsp;&nbsp;IEnumerable<[GetPriceRequestDto]({{site.libraryurl}}/Dtos/GetPrice/GetPriceRequestDto.html)> request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

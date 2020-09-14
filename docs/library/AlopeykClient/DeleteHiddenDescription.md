@@ -9,7 +9,7 @@ sort: 11
 > Use this method in order to delete hidden description fields.
 
 
-Task<**BaseResponseDto<[DeleteHiddenDescriptionResponseDto](/library/Dtos/DeleteHiddenDescription/DeleteHiddenDescriptionResponseDto.html)>**> DeleteHiddenDescription (  
-&nbsp;&nbsp;&nbsp;&nbsp;[DeleteHiddenDescriptionRequestDto](/library/Dtos/DeleteHiddenDescription/DeleteHiddenDescriptionRequestDto.html) request,  
+Task<**BaseResponseDto<[DeleteHiddenDescriptionResponseDto]({{site.libraryurl}}/Dtos/DeleteHiddenDescription/DeleteHiddenDescriptionResponseDto.html)>**> DeleteHiddenDescription (  
+&nbsp;&nbsp;&nbsp;&nbsp;[DeleteHiddenDescriptionRequestDto]({{site.libraryurl}}/Dtos/DeleteHiddenDescription/DeleteHiddenDescriptionRequestDto.html) request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

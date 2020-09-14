@@ -9,7 +9,7 @@ sort: 6
 > In order to get the order details, call this endpoint.
 
 
-Task<**BaseResponseDto<[GetOrderDetailsResponseDto](/library/Dtos/GetOrderDetails/GetOrderDetailsResponseDto.html)>**> GetOrderDetails (  
-&nbsp;&nbsp;&nbsp;&nbsp;[GetOrderDetailsRequestDto](/library/Dtos/GetOrderDetails/GetOrderDetailsRequestDto.html) request,  
+Task<**BaseResponseDto<[GetOrderDetailsResponseDto]({{site.libraryurl}}/Dtos/GetOrderDetails/GetOrderDetailsResponseDto.html)>**> GetOrderDetails (  
+&nbsp;&nbsp;&nbsp;&nbsp;[GetOrderDetailsRequestDto]({{site.libraryurl}}/Dtos/GetOrderDetails/GetOrderDetailsRequestDto.html) request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

@@ -35,7 +35,7 @@ services.AddScoped<IAlopeykClient, AlopeykClient>();
 Alopeyk has two environments the main is production environment but it also provides a sandbox environment. Depending on environment
 you could provide appropriate URIs or values for the `AlopeykClient`. (n.b. `AddAlopeyk()` method takes care of these environmental variables.)
 
-[AlopeykClients' Documentation](/library/AlopeykClient/)
+[AlopeykClients' Documentation]({{site.libraryurl}}/AlopeykClient/)
 
 #### API Rate Limits
 Alopeyk has API-call rate limitations.
@@ -72,15 +72,15 @@ services.AddAlopeyk(config => {
 
 ### AlopeykClient
 Here's a list of methods available:
-1. [GetLocation](/library/AlopeykClient/GetLocation)
-1. [GetLocationSuggestions](/library/AlopeykClient/GetLocationSuggestions)
-1. [GetPrice](/library/AlopeykClient/GetPrice)
-1. [GetPrices](/library/AlopeykClient/GetPrices)
-1. [InsertOrder](/library/AlopeykClient/InsertOrder)
-1. [GetOrderDetails](/library/AlopeykClient/GetOrderDetails)
-1. [UpdateOrder](/library/AlopeykClient/UpdateOrder)
-1. [CancelOrder](/library/AlopeykClient/CancelOrder)
-1. [RateOrder](/library/AlopeykClient/RateOrder)
-1. [AddHiddenDescription](/library/AlopeykClient/AddHiddenDescription)
-1. [DeleteHiddenDescription](/library/AlopeykClient/DeleteHiddenDescription)
-1. [GetLiveMapLink](/library/AlopeykClient/GetLiveMapLink)
+1. [GetLocation]({{site.libraryurl}}/AlopeykClient/GetLocation)
+1. [GetLocationSuggestions]({{site.libraryurl}}/AlopeykClient/GetLocationSuggestions)
+1. [GetPrice]({{site.libraryurl}}/AlopeykClient/GetPrice)
+1. [GetPrices]({{site.libraryurl}}/AlopeykClient/GetPrices)
+1. [InsertOrder]({{site.libraryurl}}/AlopeykClient/InsertOrder)
+1. [GetOrderDetails]({{site.libraryurl}}/AlopeykClient/GetOrderDetails)
+1. [UpdateOrder]({{site.libraryurl}}/AlopeykClient/UpdateOrder)
+1. [CancelOrder]({{site.libraryurl}}/AlopeykClient/CancelOrder)
+1. [RateOrder]({{site.libraryurl}}/AlopeykClient/RateOrder)
+1. [AddHiddenDescription]({{site.libraryurl}}/AlopeykClient/AddHiddenDescription)
+1. [DeleteHiddenDescription]({{site.libraryurl}}/AlopeykClient/DeleteHiddenDescription)
+1. [GetLiveMapLink]({{site.libraryurl}}/AlopeykClient/GetLiveMapLink)

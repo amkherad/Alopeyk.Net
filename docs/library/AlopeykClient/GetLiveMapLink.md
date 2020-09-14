@@ -20,6 +20,6 @@ sort: 12
 
 
 Task<**BaseResponseDto< string >**> GetLiveMapLink (  
-&nbsp;&nbsp;&nbsp;&nbsp;[GetLiveMapLinkRequestDto](/library/Dtos/GetLiveMapLink/GetLiveMapLinkRequestDto.html) request,  
+&nbsp;&nbsp;&nbsp;&nbsp;[GetLiveMapLinkRequestDto]({{site.libraryurl}}/Dtos/GetLiveMapLink/GetLiveMapLinkRequestDto.html) request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

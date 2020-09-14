@@ -16,7 +16,7 @@ sort: 7
 > The has_return parameter cannot be turned off. In order to edit the order details, this endpoint can be called:
 
 
-Task<**BaseResponseDto<[UpdateOrderResponseDto](/library/Dtos/UpdateOrder/UpdateOrderResponseDto.html)>**> UpdateOrder (  
-&nbsp;&nbsp;&nbsp;&nbsp;[UpdateOrderRequestDto](/library/Dtos/UpdateOrder/UpdateOrderRequestDto.html) request,  
+Task<**BaseResponseDto<[UpdateOrderResponseDto]({{site.libraryurl}}/Dtos/UpdateOrder/UpdateOrderResponseDto.html)>**> UpdateOrder (  
+&nbsp;&nbsp;&nbsp;&nbsp;[UpdateOrderRequestDto]({{site.libraryurl}}/Dtos/UpdateOrder/UpdateOrderRequestDto.html) request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

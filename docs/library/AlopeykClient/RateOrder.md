@@ -10,7 +10,7 @@ sort: 9
 you can call this endpoint, to fill the rate and the comment attributes.
 
 
-Task<**BaseResponseDto<[RateOrderResponseDto](/library/Dtos/RateOrder/RateOrderResponseDto.html)>**> RateOrder (  
-&nbsp;&nbsp;&nbsp;&nbsp;[RateOrderRequestDto](/library/Dtos/RateOrder/RateOrderRequestDto.html) request,  
+Task<**BaseResponseDto<[RateOrderResponseDto]({{site.libraryurl}}/Dtos/RateOrder/RateOrderResponseDto.html)>**> RateOrder (  
+&nbsp;&nbsp;&nbsp;&nbsp;[RateOrderRequestDto]({{site.libraryurl}}/Dtos/RateOrder/RateOrderRequestDto.html) request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

@@ -10,7 +10,7 @@ sort: 3
 > This endpoint retrieves calculation information for a pair of {latitude,longitude}s.
 
 
-Task<**BaseResponseDto<[GetPriceResponseDto](/library/Dtos/GetPrice/GetPriceResponseDto.html)>**> GetPrice (  
-&nbsp;&nbsp;&nbsp;&nbsp;[GetPriceRequestDto](/library/Dtos/GetPrice/GetPriceRequestDto.html) request,  
+Task<**BaseResponseDto<[GetPriceResponseDto]({{site.libraryurl}}/Dtos/GetPrice/GetPriceResponseDto.html)>**> GetPrice (  
+&nbsp;&nbsp;&nbsp;&nbsp;[GetPriceRequestDto]({{site.libraryurl}}/Dtos/GetPrice/GetPriceRequestDto.html) request,  
 &nbsp;&nbsp;&nbsp;&nbsp;**CancellationToken** cancellationToken  
 )

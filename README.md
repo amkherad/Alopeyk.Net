@@ -11,7 +11,7 @@ nugets' website.
     ```bash
     dotnet add package Alopeyk.Net
     ```
-* If you'd like to have the code instead of a pre-build library, you could use gits' [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) ability.
+* If you'd like to have the code instead of a pre-built library, you could use gits' [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) ability.
 
    Just type this command where you want to include the submodule:
     ```bash

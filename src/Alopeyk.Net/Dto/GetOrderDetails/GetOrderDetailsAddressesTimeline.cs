@@ -7,6 +7,6 @@ namespace Alopeyk.Net.Dto.GetOrderDetails
         public string Status { get; set; }
         public string Type { get; set; }
         public ResourceDescriptorDto Signature { get; set; }
-        public object CityFa { get; set; }
+        public string CityFa { get; set; }
     }
 }

@@ -14,11 +14,11 @@ namespace Alopeyk.Net.Dto.RateOrder.Remote
         public string transport_type { get; set; }
         public int price { get; set; }
         public int rate { get; set; }
-        public object next_address_any { get; set; }
+        public string next_address_any { get; set; }
         public ResourceDescriptorDto signature { get; set; }
-        public object order_token { get; set; }
-        public string nprice { get; set; }
-        public object subsidy { get; set; }
+        public string order_token { get; set; }
+        public decimal nprice { get; set; }
+        public decimal subsidy { get; set; }
         public string signed_by { get; set; }
         public int final_price { get; set; }
     }

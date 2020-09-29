@@ -1,4 +1,5 @@
 using System;
+using Alopeyk.Net.Dto;
 
 namespace Alopeyk.Net.AspNet.Dto
 {
@@ -12,8 +13,8 @@ namespace Alopeyk.Net.AspNet.Dto
         public int id { get; set; } 
         public string city { get; set; } 
         public string order_id { get; set; } 
-        public object customer_id { get; set; } 
-        public object courier_id { get; set; } 
+        public string customer_id { get; set; } 
+        public string courier_id { get; set; } 
         public string status { get; set; } 
         public string address { get; set; } 
         public string description { get; set; } 
@@ -31,6 +32,6 @@ namespace Alopeyk.Net.AspNet.Dto
         public string arrive_lng { get; set; } 
         public string handle_lat { get; set; } 
         public string handle_lng { get; set; } 
-        public object signature { get; set; } 
+        public ResourceDescriptorDto signature { get; set; } 
     }
 }

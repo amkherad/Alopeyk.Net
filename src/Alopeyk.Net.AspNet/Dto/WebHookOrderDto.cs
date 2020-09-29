@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Alopeyk.Net.Dto;
 
 namespace Alopeyk.Net.AspNet.Dto
 {
@@ -20,20 +21,20 @@ namespace Alopeyk.Net.AspNet.Dto
         public bool pay_at_dest { get; set; } 
         public double accept_lat { get; set; } 
         public double accept_lng { get; set; } 
-        public object signature { get; set; } 
+        public ResourceDescriptorDto signature { get; set; } 
         public WebHookScreenshotDto screenshot { get; set; } 
         public string progress { get; set; } 
         public string order_token { get; set; } 
         public string tracking_url { get; set; } 
-        public object cancelled_by { get; set; } 
-        public object scheduled_at { get; set; } 
+        public string cancelled_by { get; set; } 
+        public DateTime? scheduled_at { get; set; } 
         public DateTime launched_at { get; set; } 
         public DateTime accepted_at { get; set; } 
-        public object picking_at { get; set; } 
-        public object delivering_at { get; set; } 
-        public object delivered_at { get; set; } 
-        public object finished_at { get; set; } 
-        public object stopped_at { get; set; } 
+        public DateTime? picking_at { get; set; } 
+        public DateTime? delivering_at { get; set; } 
+        public DateTime? delivered_at { get; set; } 
+        public DateTime? finished_at { get; set; } 
+        public DateTime? stopped_at { get; set; } 
         public DateTime created_at { get; set; } 
         public DateTime updated_at { get; set; } 
         public List<WebHookAddressDto> addresses { get; set; } 

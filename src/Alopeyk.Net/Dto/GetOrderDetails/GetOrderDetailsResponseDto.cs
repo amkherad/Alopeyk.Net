@@ -10,9 +10,9 @@ namespace Alopeyk.Net.Dto.GetOrderDetails
         public AlopeykOrderStates Status { get; set; }
         public string InvoiceNumber { get; set; }
         public int CustomerId { get; set; }
-        public object DeviceId { get; set; }
+        public string DeviceId { get; set; }
         public int CourierId { get; set; }
-        public object CancelledBy { get; set; }
+        public string CancelledBy { get; set; }
         public int Distance { get; set; }
         public int Duration { get; set; }
         public int Price { get; set; }
@@ -30,19 +30,19 @@ namespace Alopeyk.Net.Dto.GetOrderDetails
         public double AcceptLatitude { get; set; }
         public double AcceptLongitude { get; set; }
         public int Rate { get; set; }
-        public object Comment { get; set; }
-        public object ScheduledAt { get; set; }
-        public DateTime LaunchedAt { get; set; }
-        public DateTime AcceptedAt { get; set; }
-        public DateTime DeliveredAt { get; set; }
+        public string Comment { get; set; }
+        public DateTime? ScheduledAt { get; set; }
+        public DateTime? LaunchedAt { get; set; }
+        public DateTime? AcceptedAt { get; set; }
+        public DateTime? DeliveredAt { get; set; }
         public DateTime? FinishedAt { get; set; }
         public DateTime? StoppedAt { get; set; }
         public DateTime? RemovedAt { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public DateTime PickingAt { get; set; }
-        public DateTime DeliveringAt { get; set; }
+        public DateTime? PickingAt { get; set; }
+        public DateTime? DeliveringAt { get; set; }
         public ResourceDescriptorDto Screenshot { get; set; }
         public GetOrderDetailsAddressResponseDto[] Addresses { get; set; }
         public GetOrderDetailsEtaMinimal EtaMinimal { get; set; }
@@ -51,7 +51,7 @@ namespace Alopeyk.Net.Dto.GetOrderDetails
         public string Progress { get; set; }
         public object LastPositionMinimal { get; set; }
         public GetOrderDetailsAddressesTimeline[] AddressesTimeline { get; set; }
-        public object NextAddressAnyFull { get; set; }
+        public string NextAddressAnyFull { get; set; }
         public ResourceDescriptorDto Signature { get; set; }
         public string OrderToken { get; set; }
         public decimal? NPrice { get; set; }
@@ -59,9 +59,9 @@ namespace Alopeyk.Net.Dto.GetOrderDetails
         public string SignedBy { get; set; }
         public int FinalPrice { get; set; }
         public GetOrderDetailsScoreCalc ScoreCalc { get; set; }
-        public object OrderDiscount { get; set; }
+        public decimal? OrderDiscount { get; set; }
         public object ExtraParam { get; set; }
-        public object CourierVehicle { get; set; }
+        public GetOrderDetailsCourierVehicleResponseDto CourierVehicle { get; set; }
         public int CustomerScore { get; set; }
     }
 }

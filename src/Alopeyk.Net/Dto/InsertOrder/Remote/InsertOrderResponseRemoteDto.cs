@@ -21,7 +21,7 @@ namespace Alopeyk.Net.Dto.InsertOrder.Remote
         public int duration { get; set; }
         public string invoice_number { get; set; }
         public bool pay_at_dest { get; set; }
-        public object device_id { get; set; }
+        public string device_id { get; set; }
         public int weight { get; set; }
         public bool is_api { get; set; }
         public bool is_vip { get; set; }
@@ -35,8 +35,8 @@ namespace Alopeyk.Net.Dto.InsertOrder.Remote
         public string signed_by { get; set; }
         public int final_price { get; set; }
         public InsertOrderScoreRemoteDto score_calc { get; set; }
-        public object order_discount { get; set; }
+        public decimal order_discount { get; set; }
         public object extra_param { get; set; }
-        public object orderDiscount { get; set; }
+        public decimal orderDiscount { get; set; }
     }
 }

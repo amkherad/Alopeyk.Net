@@ -26,7 +26,7 @@ namespace Alopeyk.Net
             bool retry = false;
 
             path = CreatePath(path);
-            
+
             do
             {
                 try
@@ -53,7 +53,8 @@ namespace Alopeyk.Net
 
             var responseStream = await response.Content.ReadAsStreamAsync();
 
-            var result = JsonSerializer.Deserialize<RemoteBaseResponseDto<GetOrderDetailsResponseRemoteDto>>(responseStream);
+            var result =
+                JsonSerializer.Deserialize<RemoteBaseResponseDto<GetOrderDetailsResponseRemoteDto>>(responseStream);
 
             if (result is null)
             {
@@ -203,7 +204,18 @@ namespace Alopeyk.Net
                     ReferralCode = obj.courier_info.referral_code,
                     LastOnline = obj.courier_info.last_online
                 };
-            result.CourierVehicle = obj.courier_vehicle;
+            result.CourierVehicle = obj.courier_vehicle is null
+                ? null
+                : new GetOrderDetailsCourierVehicleResponseDto
+                {
+                    Color = obj.courier_vehicle.color,
+                    BuildYear = obj.courier_vehicle.build_year,
+                    ColorFa = obj.courier_vehicle.color_fa,
+                    PlateNumber = obj.courier_vehicle.plate_number,
+                    VehicleBrandName = obj.courier_vehicle.vehicle?.brand_name,
+                    VehicleModelName = obj.courier_vehicle.vehicle?.model_name,
+                    VehiclePublicName = obj.courier_vehicle.vehicle?.public_name
+                };
             result.CreatedAt = obj.created_at;
             result.CustomerId = obj.customer_id;
             result.CustomerScore = obj.customerScore;

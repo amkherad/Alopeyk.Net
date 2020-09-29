@@ -8,6 +8,6 @@ namespace Alopeyk.Net.Dto.GetOrderDetails.Remote
         public string status { get; set; }
         public string type { get; set; }
         public ResourceDescriptorDto signature { get; set; }
-        public object city_fa { get; set; }
+        public string city_fa { get; set; }
     }
 }
